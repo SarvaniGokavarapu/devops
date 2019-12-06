@@ -1,0 +1,54 @@
+<html>
+<head>
+<script>
+function vali(fun)
+{
+ var login=window.document.fun.uname.value;
+ var pwd=window.document.fun.password.value;
+ var k=0;
+ check=new RegExp("[^a-zA-Z]{1,}","g");
+ check1=new RegExp("[a-zA-Z0-9]{1,}","g");
+if(login.length<1)
+{
+ document.getElementById('h').innerHTML="username must be filled";
+ k=1;
+}
+else
+document.getElementById('h').innerHTML="";
+if(login.match(check))
+{
+ document.getElementById('s').innerHTML="name must be alphatic";
+ k=1;
+}
+else
+document.getElementById('s').innerHTML="";
+if(!pwd.match(check1))
+{
+ document.getElementById('p').innerHTML="password must satisfy given format";
+ k=1; 
+}
+if(k==0)
+	return true;
+return false;
+}
+</script>
+</head>
+<body background="login.jpg" width="400" height="250">
+<fieldset>
+<legend align="CENTER">Login Details</legend>
+<form name="fun">
+<center>
+<table>
+<tr>
+<td>Username:</td><td><input type="textbox" name="uname" id="uname" placeholder="enter any name"></td>
+<td><font color="red" size="2"><span id="h"></span></font></td><td><font color="red" size="2"><span id="s"></span></font></td></tr>
+<tr><td>Password:</td><td><input type="password" name="password" placeholder="enter password"><br></td>
+<td><font color="red" size="2"><span id="p"></span></font></td></tr>
+<tr><td><input type="submit" value="Login" onclick="return vali(this)"/></td>
+<td><input type="submit" value="cancel"></td></tr>
+</table>
+</center>
+</form>
+</fieldset>
+</body>
+</html>
